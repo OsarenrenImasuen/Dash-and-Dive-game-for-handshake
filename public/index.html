@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dive and Dash Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <section id="menu" class="screen active">
+      <div class="logo">
+        <span>🐠</span>
+        <h1>DIVE <em>and</em> DASH</h1>
+        <p>Race the reef. Dodge the deep.</p>
+      </div>
+
+      <div class="menu-card online-menu">
+        <button id="practiceMode">Practice Offline</button>
+        <button id="createRoom">Create Room</button>
+
+        <div class="join-row">
+          <input id="roomCode" maxlength="5" placeholder="ROOM CODE">
+          <button id="joinRoom">Join Room</button>
+        </div>
+
+        <p id="menuError" class="error"></p>
+        <button class="secondary" id="howBtn">How to Play</button>
+      </div>
+
+      <p class="hint">Online multiplayer • 1–3 players per room</p>
+    </section>
+
+    <section id="lobby" class="screen">
+      <div class="modal">
+        <h2>Room <span id="lobbyCode"></span></h2>
+        <p id="lobbyText">Waiting for other fish…</p>
+        <div id="lobbyPlayers" class="lobby-players"></div>
+        <button id="startRace">Start Race</button>
+        <p id="hostNote" class="hint"></p>
+      </div>
+    </section>
+
+    <section id="how" class="screen">
+      <div class="modal">
+        <h2>How to Dive</h2>
+        <p>Join the same room code as your friends. Race downward, avoid hazards, collect bubbles, and reach the finish gate first.</p>
+        <div class="controls">
+          <div>
+            <b>Steer</b>
+            <span>A / D or ← / →</span>
+          </div>
+        </div>
+        <button class="back">Back</button>
+      </div>
+    </section>
+
+    <section id="game" class="screen">
+      <canvas id="canvas" width="1000" height="650"></canvas>
+      <div id="hud">
+        <div id="zone">SHALLOW REEF</div>
+        <div id="progress"></div>
+        <div id="raceInfo">Race starting…</div>
+      </div>
+      <div id="countdown"></div>
+    </section>
+
+    <section id="results" class="screen">
+      <div class="modal results-card">
+        <div class="trophy">🏆</div>
+        <h2 id="winner"></h2>
+        <p>What a spectacular dive.</p>
+        <div id="rankings"></div>
+        <button id="home">Main Menu</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
