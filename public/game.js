@@ -240,7 +240,7 @@ function updatePractice(deltaTime) {
 
   player.speedX += (direction * 4.8 - player.speedX) * 0.17;
   player.x = Math.max(30, Math.min(970, player.x + player.speedX * deltaTime * 0.08));
-  player.y += (player.boostMs > 0 ? 0.23 : 0.135) * deltaTime;
+  player.y += (player.boostMs > 0 ? 0.23 : 0.135) * deltaTime*1.5;
   player.boostMs -= deltaTime;
 
   if (gameState.obstacles.some((obstacle) => practiceOverlap(player, obstacle))) {
